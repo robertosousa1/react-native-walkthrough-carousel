@@ -1,0 +1,43 @@
+{
+  "name": "react-native-walkthrough-carousel",
+  "title": "React Native Walkthrough Carousel",
+  "version": "1.0.0",
+  "description": "TODO",
+  "main": "src/index.js",
+  "files": [
+    "README.md",
+    "android",
+    "index.js",
+    "ios",
+    "react-native-walkthrough-carousel.podspec"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertosousa1/react-native-walkthrough-carousel.git",
+    "baseUrl": "https://github.com/robertosousa1/react-native-walkthrough-carousel"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": {
+    "name": "Roberto Alves",
+    "email": "robertosousa1@uol.com.br"
+  },
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
+  "peerDependencies": {
+    "react": "^16.8.1",
+    "react-native": ">=0.60.0-rc.0 <1.0.x"
+  },
+  "devDependencies": {
+    "react": "^16.9.0",
+    "react-native": "^0.61.5"
+  },
+  "dependencies": {
+    "react-native-snap-carousel": "^3.9.1"
+  }
+}
