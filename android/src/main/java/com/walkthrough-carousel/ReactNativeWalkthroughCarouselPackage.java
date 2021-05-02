@@ -1,4 +1,4 @@
-package com.walkthrough-carousel;
+package com.walkthrough;
 
 import java.util.Arrays;
 import java.util.Collections;

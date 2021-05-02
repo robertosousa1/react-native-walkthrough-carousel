@@ -113,7 +113,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
   },
-  nextButton: externalStyles => ({
+  nextButton: {
     width: NEXT_BUTTON_WIDTH,
     height: BTN_HEIGHT,
 
@@ -123,13 +123,13 @@ export const styles = StyleSheet.create({
 
     justifyContent: 'center',
 
-    backgroundColor: externalStyles ? externalStyles.backgroundColor : colors.primary,
-    borderColor: externalStyles ? externalStyles.borderColor : colors.primary,
-    borderWidth: externalStyles ? externalStyles.borderWidth : 2,
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
+    borderWidth: 2,
     borderRadius: Math.round(NEXT_BUTTON_WIDTH / 16),
     zIndex: 1,
-  }),
-  previousButton: externalStyles => ({
+  },
+  previousButton: {
     width: PREVIOUS_BUTTON_WIDTH,
     height: BTN_HEIGHT,
 
@@ -139,20 +139,20 @@ export const styles = StyleSheet.create({
 
     justifyContent: 'center',
 
-    borderWidth: externalStyles ? externalStyles.borderWidth : 1,
-    borderColor: externalStyles ? externalStyles.borderColor : colors.primary,
+    borderWidth: 1,
+    borderColor: colors.primary,
     borderRadius: Math.round(PREVIOUS_BUTTON_WIDTH / 16),
     zIndex: 1,
-  }),
-  doneButton: externalStyles => ({
+  },
+  doneButton: {
     width: DONE_BUTTON_WIDTH,
     height: BTN_HEIGHT,
 
-    backgroundColor: externalStyles ? externalStyles.backgroundColor : colors.primary,
+    backgroundColor: colors.primary,
     borderWidth: 2,
-    borderColor: externalStyles ? externalStyles.borderColor : colors.primary,
+    borderColor: colors.primary,
     borderRadius: Math.round(NEXT_BUTTON_WIDTH / 16),
-  }),
+  },
   buttonText: {
     fontSize: PixelRatio.getFontScale() > 1.7 ? 16 : 18,
     color: colors.secundary,

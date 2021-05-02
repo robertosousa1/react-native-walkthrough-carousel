@@ -16,10 +16,28 @@ import logo from '../assets/logo.png';
 import carousel from './carousel';
 import buttons from './buttons';
 
+const styles = {
+  backgroundColor: '#eee',
+  card: {
+    borderColor: '#ddd',
+  },
+  dotStyle: {
+    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+  },
+  inactiveDotStyle: {
+    backgroundColor: '#ddd',
+  },
+};
+
 export default function App() {
   return (
     <>
-      <Walkthrough logo={logo} carousel={carousel} buttons={buttons} />
+      <Walkthrough
+        logo={logo}
+        carousel={carousel}
+        buttons={buttons}
+        styles={styles}
+      />
     </>
   );
 }

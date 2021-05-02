@@ -11,17 +11,7 @@ import {
 import { height } from '../styles/metrics';
 import { ITEM_WIDTH, SLIDER_WIDTH, styles } from './styles';
 
-const renderItem = ({ item }) => (
-  <View style={styles.itemContainer}>
-    <View style={styles.textContainer}>
-      {item.title}
-      {item.text}
-    </View>
-    {height > 640 && PixelRatio.getFontScale() <= 1.5 ? item.banner : undefined}
-  </View>
-);
-
-export default function WalkThrough({ logo, carousel: data, buttons }) {
+export default function WalkThrough({ logo, carousel: data, buttons, styles: externalStyles }) {
   const [state, setState] = useState({ index: 0 });
 
   const carousel = useRef(null);
@@ -50,15 +40,31 @@ export default function WalkThrough({ logo, carousel: data, buttons }) {
       activeDotIndex={state.index}
       containerStyle={styles.paginationContainer}
       dotContainerStyle={{ height: 0, padding: 0, marginTop: -16 }}
-      dotStyle={styles.dotStyle}
-      inactiveDotStyle={styles.inactiveDotStyle}
+      dotStyle={[styles.dotStyle, {
+        ...externalStyles.dotStyle
+      }]}
+      inactiveDotStyle={[styles.inactiveDotStyle, {
+        ...externalStyles.inactiveDotStyle
+      }]}
     />
   );
 
-  const Item = renderItem;
+  const Item = ({ item }) => (
+    <View style={[styles.itemContainer, {
+      ...externalStyles.card
+    }]}>
+      <View style={styles.textContainer}>
+        {item.title}
+        {item.text}
+      </View>
+      {height > 640 && PixelRatio.getFontScale() <= 1.5 ? item.banner : undefined}
+    </View>
+  );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, {
+      ...externalStyles
+    }]}>
       <View style={styles.logoView}>
         {logo && <Image source={logo} style={styles.logo} />}
       </View>
@@ -91,7 +97,7 @@ export default function WalkThrough({ logo, carousel: data, buttons }) {
       <View style={styles.buttonContainer}>
         <AnimatedButton
           onPress={previousCard}
-          style={styles.previousButton(buttons.previousButton.styles)}
+          style={[styles.previousButton, { ...buttons.previousButton.styles }]}
           text={buttons.previousButton.text || 'Previous'}
           btnType="previous"
           index={state.index}
@@ -103,7 +109,7 @@ export default function WalkThrough({ logo, carousel: data, buttons }) {
 
         <AnimatedButton
           onPress={nextCard}
-          style={styles.nextButton(buttons.nextButton.styles)}
+          style={[styles.nextButton, { ...buttons.nextButton.styles }]}
           text={buttons.nextButton.text || 'Next'}
           btnType="next"
           index={state.index}
@@ -114,7 +120,7 @@ export default function WalkThrough({ logo, carousel: data, buttons }) {
 
         <AnimatedButton
           onPress={buttons.doneButton.onPress || null}
-          style={styles.doneButton(buttons.doneButton.styles)}
+          style={[styles.doneButton, { ...buttons.doneButton.styles }]}
           text={buttons.doneButton.text || 'Continue'}
           btnType="done"
           index={state.index}
