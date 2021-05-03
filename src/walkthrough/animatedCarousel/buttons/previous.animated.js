@@ -3,7 +3,6 @@ import { Animated, TouchableOpacity, Text } from 'react-native';
 
 import { styles } from '../../styles';
 import { width } from '../../../styles/metrics';
-import colors from '../../../styles/colors';
 
 export function previousButton({
   onPress,
