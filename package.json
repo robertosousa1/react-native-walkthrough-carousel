@@ -13,12 +13,18 @@
     "baseUrl": "https://github.com/robertosousa1/react-native-walkthrough-carousel"
   },
   "keywords": [
+    "react",
+    "native",
     "react-native",
     "react-native-walkthrough",
     "react-native-carousel",
     "walkthrough-carousel",
     "walkthrough",
-    "carousel"
+    "carousel",
+    "slider",
+    "snap",
+    "card",
+    "cards"
   ],
   "author": {
     "name": "Roberto Alves",
