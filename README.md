@@ -19,10 +19,10 @@
 
 ## Installation
 
-- Using [npm](https://www.npmjs.com/#getting-started): 
+- Using [npm](https://www.npmjs.com/#getting-started): <br/>
 `npm install react-native-walkthrough-carousel`
 
-- Using [Yarn](https://yarnpkg.com/):
+- Using [Yarn](https://yarnpkg.com/): <br/>
  `yarn add react-native-walkthrough-carousel`
 
 ## Example
