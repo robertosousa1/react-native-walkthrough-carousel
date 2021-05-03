@@ -1,7 +1,7 @@
 {
   "name": "react-native-walkthrough-carousel",
   "title": "React Native Walkthrough Carousel",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple and practical component for creating a Walkthrough with Carousel for React Native applications.",
   "main": "src/index.js",
   "scripts": {
