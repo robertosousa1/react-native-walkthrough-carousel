@@ -7,7 +7,7 @@
   💬 React Native Walkthrough Carousel
 </h3>
 <p align="center">
-  The most complete chat UI for React Native & Web
+  A simple and practical component for creating a Walkthrough with Carousel for React Native applications
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/react-native-walkthrough-carousel"><img alt="npm version" src="https://badge.fury.io/js/react-native-walkthrough-carousel.svg"/></a>
@@ -163,17 +163,34 @@ See [`example`](https://github.com/robertosousa1/react-native-walkthrough-carous
 
 ## Props
 
-- **`logo`** _(String)_ - Importing an image to be displayed at the top of the page
-- **`carousel`** _(Array of objects)_:
-		- **Key** _(Number)_: unique key to identify the position within the array
-		- **Title** _(Text Component)_: Text component, styled input is supported - React Native `<Text/>` recommended
-		- **Text** _(Text Component)_: Text component, styled input is supported - React Native `<Text/>` recommended
-		- **Banner** _(Image Component)_:Image component, stylized input is supported - React Native `<Image/>` recommended
-- **`buttons`** _(Object)_: 
-		- **previousButton** _(Object)_: Includes `text` attribute that expects a string and `styles` that expects a stylized object 
-		- **nextButton** _(Object)_: Includes `text` attribute that expects a string and `styles` that expects a stylized object 
-		- **doneButton** _(Object)_: Includes `text` attribute that expects a string, `styles` that expects an object with stylization and `onPress` that expects a function to be executed at the click of the button 
-- **`styles`** _(Object)_ - Wait for a stylized object where at the root of the object will impact the component as a whole, the `card` attribute will only impact the cards, the `dotStyle` attribute will only impact the active dot, and finally, the inactiveDotStyle will have impact only on the idle dot
+| Prop   |      Type      |  Description |
+|----------|:--------:|------------|
+| **logo** | _string_ | Importing an image to be displayed at the top of the page. |
+| **carousel** | _array of objects_ | - **Key** _(Number)_: unique key to identify the position within the array<br/>- **Title** _(Text Component)_: Text component, styled input is supported - React Native `<Text/>` recommended<br/>- **Text** _(Text Component)_: Text component, styled input is supported - React Native `<Text/>` recommended<br/>- **Banner** _(Image Component)_:Image component, stylized input is supported - React Native `<Image/>` recommended  |
+| **buttons** | _object_ |    - **previousButton** _(Object)_: Includes `text` attribute that expects a string and `styles` that expects a stylized object <br />- **nextButton** _(Object)_: Includes `text` attribute that expects a string and `styles` that expects a stylized object <br />- **doneButton** _(Object)_: Includes `text` attribute that expects a string, `styles` that expects an object with stylization and `onPress` that expects a function to be executed at the click of a button - _strongly recommended to change the global display state of the Walkthrough_  |
+| **styles** | _object_ |    Wait for a stylized object where at the root of the object will impact the component as a whole, the `card` attribute will only impact the cards, the `dotStyle` attribute will only impact the active dot, and finally, the inactiveDotStyle will have impact only on the idle dot. |
+
+## Observations
+This component does not manage the global state of the application for implementing Walkthrough behavior - displaying a single one the first time the application is opened.
+
+This responsibility rests with the consumer application of that library. Below is an example of application routing:
+
+```jsx
+const App = createStackNavigator();
+
+export default function AuthRoutes() {
+	const { isFirstAccess } = useAuth(); // Variable extracted from the global state containing the (Boolean) value if the Walkthrough is to be displayed
+
+	return (
+		<App.Navigator
+			initialRouteName={isFirstAccess ? 'WalkThrough' : 'Home'}
+		>
+			<App.Screen name="WalkThrough" component={WalkThrough} />
+			<App.Screen name="Home" component={Home} />
+		</App.Navigator>
+	);
+}
+```
 
 ## How to contribute
 
